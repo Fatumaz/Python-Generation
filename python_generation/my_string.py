@@ -1,4 +1,5 @@
-word = input()
-centre = (len(word) + 1) // 2
+text = input().upper()
 
-print(word[centre:] + word[:centre])
+genetic = 'Аденин Гуанин Цитозин Тимин'.split() # создаёт список для перебора
+for word in genetic: # Перебирает слова из списка
+    print(f'{word}: {text.count(word[:1])}') # Пример вывода: Аденин: 4
