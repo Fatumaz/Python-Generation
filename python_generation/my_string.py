@@ -1,7 +1,6 @@
-num = int(input())
+text = input()
 count = 0
-for i in range(num):
-    code = input()
-    if code.count('11') >= 3:
+for c in text:
+    if c.isdigit():
         count += 1
 print(count)
