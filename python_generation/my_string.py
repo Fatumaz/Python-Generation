@@ -1,5 +1,7 @@
-text = input().upper()
-
-genetic = 'Аденин Гуанин Цитозин Тимин'.split() # создаёт список для перебора
-for word in genetic: # Перебирает слова из списка
-    print(f'{word}: {text.count(word[:1])}') # Пример вывода: Аденин: 4
+num = int(input())
+count = 0
+for i in range(num):
+    code = input()
+    if code.count('11') >= 3:
+        count += 1
+print(count)
