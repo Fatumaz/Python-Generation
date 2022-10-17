@@ -1,5 +1,6 @@
-s = input()
-if s.count('f') == 0:
-    print(-2)
-else:
-    print(s.find('f', s.find('f') + 1))
+lst = []
+for _ in range(int(input())):
+    text = input()
+    if text not in lst:
+        lst.append(text)
+print(*lst, sep='\n')
