@@ -19,7 +19,6 @@ def is_password_good(password):
 
 
 
-
 # считываем данные
 # txt = input()
 #
