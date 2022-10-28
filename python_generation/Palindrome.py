@@ -1,6 +1,6 @@
 # объявление функции
 def is_palindrome(text):
-    palindrome = [c for c in ''.join(text.lower().split()) if c.isalnum()]
+    palindrome = [c for c in text.lower() if c.isalnum()]
     return palindrome == palindrome[::-1]
 # # считываем данные
 # txt = input()
