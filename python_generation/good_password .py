@@ -4,7 +4,7 @@ import string
 # объявление функции
 def is_password_good(password):
     if len(password) < 8:
-        return 'Too Weak'
+        return False
     digits = string.digits
     lowers = string.ascii_lowercase
     uppers = string.ascii_uppercase
@@ -14,16 +14,16 @@ def is_password_good(password):
             count += 1
             continue
     if count == 3:
-        return 'Very Good'
-    return 'Weak' if count == 1 else 'Good'
+        return True
+    return False if count == 1 else False
 
 
 
 # считываем данные
-# txt = input()
-#
-# # вызываем функцию
-# print(is_password_good(txt))
+txt = input()
+
+# вызываем функцию
+print(is_password_good(txt))
 
 
 if __name__ == '__main__':
