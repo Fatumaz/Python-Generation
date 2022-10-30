@@ -1,6 +1,6 @@
 # объявление функции
 def is_correct_bracket(text):
-    while text.rfind('()') >= 0:
+    while text.find('()') >= 0:
         text = text.replace('()', '')
     return (len(text) == 0)
 
