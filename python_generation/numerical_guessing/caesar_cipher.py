@@ -1,9 +1,4 @@
-# ru_encrpt = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-ru_encrpt = 'БВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯА'
-en_encrpt = 'To be, or not to be, that is the question!'
-right_shift = 7
-ru_dscrpt = 'Шсъцхр щмчжмщ йшм, нмтзж йшм лхшщзщг.'
-en_dscrpt = "Sgd fqzrr hr zkvzxr fqddmdq nm sgd nsgdq rhcd ne sgd edmbd."
+right_shift = 1
 
 
 def encryption(text, right_shift):
@@ -30,13 +25,14 @@ def decoding(text, right_shift):
     for c in text:
         if not c.isalpha():
             print(c, end='')
-
+            continue
         encrypted = ord(c) - right_shift  # индекс + ключ
 
         if 64 < ord(c) < 91 or 96 < ord(c) < 123:
             if encrypted <= 64 or (c.islower() and encrypted <= 96):
                 encrypted += 26
             print(chr(encrypted), end='')
+            continue
 
         if 1039 < ord(c) < 1104:
             if encrypted < 1040 or (c.islower() and encrypted < 1072):
@@ -44,11 +40,28 @@ def decoding(text, right_shift):
             print(chr(encrypted), end='')
 
 
-# encryption(ru_encrpt, right_shift)
-# print()
-decoding(ru_dscrpt, right_shift)
+def shift(word):
+    total = 0
+    for c in word:
+        if c.isalpha():
+            total += 1
+    return total
 
-# while right_shift < 25:
-#     right_shift += 1
-#     en_decoding(en_dscrpt, right_shift)
-#     print()
+
+text = input('Введи текст:\n')
+question = input('Зашифровать или расшифровать? 0/1\n')
+
+
+if question == '0':
+    for c in text.split():
+        right_shift = shift(c)
+        encryption(c, right_shift)
+        print(' ', end='')
+
+if question == '1':
+    total = 0
+    while right_shift <= 26:
+        right_shift += 1
+        total += 1
+        decoding(text, right_shift)
+        print(" -", total)
